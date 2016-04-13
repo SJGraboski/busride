@@ -9,10 +9,13 @@ var Bus = function(driverName, color, gas) {
 
 	// busChatter: make each student shout his/her catchphrase
 	this.busChatter = function() {
+		// alert the user what we're doing
+		console.log("Here are all of the student's catch phrases:")
 		// go through each student
 		for (var i = 0; i < this.studentsOnTheBus.length; i++) {
 			// each student shouts his/her catchphrase
-			console.log(this.studentsOnTheBus[i].catchPhrase);
+			console.log(this.studentsOnTheBus[i].name + ": " + 
+									this.studentsOnTheBus[i].catchPhrase);
 		}
 	}
 
@@ -28,12 +31,10 @@ var Bus = function(driverName, color, gas) {
 		var index = this.studentsOnTheBus.indexOf(student);
 		// if we find the student in the array (and thus index isn't -1)
 		if (index != -1) {
-			// tell the user we're removing the student
-			console.log("Removing " + student.name + " from the Bus...");
 			// remove the student
 			this.studentsOnTheBus.splice(index, 1);
-			// let the user know it worked
-			console.log("Student removed!");
+			// tell the user we removed the student
+			console.log("\nRemoved " + student.name + " from the bus.");
 		}
 	}
 }

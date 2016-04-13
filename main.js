@@ -5,16 +5,16 @@ const prompt = require('prompt');
 var student = require('./student.js');
 var bus = require('./bus.js');
 
-
-// create the bus
-var theBus = new bus.bus.construct("Bill", "Yellow", 22);
-console.log(theBus.studentsOnTheBus);
-
-// add 20 students, push them into the bus
-
+// make shorthands for imported constructors and functions
 var Student = student.student.construct;
+var Bus = bus.bus.construct;
 var prompter = student.student.prompter;
 
+
+// create the bus
+var theBus = new Bus("Bill", "Yellow", 22);
+
+// add 20 students, push them into the bus
 var joey = new student.student.construct('Joey', 'boy', 'freshman', 3.4, 2, false, "JOEY JOEY JOEY!", theBus);
 var joey2 = new student.student.construct('Joey 2', 'boy', 'freshman', 3.4, 2, false, "I'M NOT JOEY!", theBus);
 var honk = new student.student.construct('honk', 'girl', 'freshman', 4.0, 9, false, "HONK HONK!", theBus);
@@ -22,9 +22,9 @@ var okay = new student.student.construct('okay', 'boy', 'freshman', 2, 5, false,
 var yeah = new student.student.construct('yeah', 'boy', 'freshman', 3.3, 3, true, "YEAH!", theBus);
 var joey3 = new student.student.construct('Joey 3', 'boy', 'sophomore', 3.7, 2, false, "JOEY JOEY JOEY", theBus);
 var bjork = new student.student.construct('Bjork', 'girl', 'sophomore', 4, 8, false, "*that weird throat sound Bjork makes*", theBus);
-var bjork2 = new student.student.construct('Bjork', 'girl', 'sophomore', 4, 9, false, "I...am...grateful...grapefruit!", theBus);
+var bjork2 = new student.student.construct('Bjork (again)', 'girl', 'sophomore', 4, 9, false, "I...am...grateful...grapefruit!", theBus);
 var hank = new student.student.construct('Hank', 'grown man', 'senior', 2.4, 15, false, "I sell propane and propance accessories.", theBus);
-var wooo = new student.student.construct('Woo', 'girl', 'sophomore', 3.2, 3, false, "WOOO!", theBus);
+var wooo = new student.student.construct('Wooo', 'girl', 'sophomore', 3.2, 3, false, "WOOO!", theBus);
 var echh = new student.student.construct('Echh', 'boy', 'junior', 3.6, 7, true, "ECHH!", theBus);
 var hey = new student.student.construct('Hey', 'girl', 'junior', 1.6, 4, true, "HEY!", theBus);
 var ellis = new student.student.construct('Ellis', 'boy', 'junior', 1, 100, false, "My name is Ellis. Riding on the telis", theBus);
@@ -39,6 +39,7 @@ var jack = new student.student.construct('Jack', 'girl', 'senior', 3.7, 7, false
 // call each student's name
 theBus.busChatter();
 
+// kick wooo off the bus
 theBus.getOut(wooo);
 
 // prompt to add another student

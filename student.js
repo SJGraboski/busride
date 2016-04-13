@@ -38,6 +38,7 @@ var Student = function(
 function prompter(bus) {
 
 	// start the prompt and collect the info we need
+	console.log("\nEnter the new student's details to add him/her to the bus: ")
 	prompt.start();
 	prompt.get(['name', 'gender', 'grade', 'GPA', 'detentions', 'sleepingInClass', 'catchPhrase'], function(err, result) {
 		// create the student
@@ -45,7 +46,7 @@ function prompter(bus) {
 		// make shorthand for new student
 		var shorthand = bus.studentsOnTheBus[bus.studentsOnTheBus.length-1]
 		// show that the prompted student is indeed on the bus
-		console.log(shorthand.name + " has been added to the bus");
+		console.log("\n" + shorthand.name + " has been added to the bus");
 	})
 }
 
